@@ -118,8 +118,8 @@ menupopup menuseparator {
 menupopup menuitem,
 menupopup menu,
 .autocomplete-richlistitem {
-    height: 32px !important;
-    padding: 0 16px !important;
+    height: 28px !important;
+    padding: 0 12px !important;
     border: 0 !important;
     background: 0 !important;
     color: inherit !important;
@@ -143,6 +143,18 @@ menupopup menuitem[disabled="true"],
 menupopup menu[disabled="true"],
 .autocomplete-richlistitem[disabled="true"] {
     opacity: 0.5 !important;
+}
+
+.menu-right > image {
+    width: 10px !important;
+}
+
+#contentAreaContextMenu .menu-right > image {
+    width: 20px !important;
+}
+
+toolbarbutton menupopup[placespopup] > :is(.menu-iconic, .menuitem-iconic) > .menu-iconic-left {
+    margin-inline-end: 0px !important;
 }
 
 /* disable vertical menu scroll buttons and use a good ol' scrollbar */

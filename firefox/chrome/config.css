@@ -129,7 +129,25 @@
     background: var(--dark-base) !important;
 }
 
+.bookmark-item > .toolbarbutton-text {
+    display: -moz-box !important;
+    margin: 1px 4px 1px 0 !important;
+}
 
+toolbarbutton.bookmark-item:not(.subviewbutton) {
+    border-radius: 4px !important;
+}
+
+.bookmark-item > .toolbarbutton-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 4px !important;
+}
+
+toolbarbutton menupopup[placespopup] > :is(menu, menuitem), .subview-subheader, panelview .toolbarbutton-1, .subviewbutton, .widget-overflow-list .toolbarbutton-1 {
+    margin: 0 !important;
+    border-radius: 0 !important;
+}
 
 * {
     --lwt-tab-line-color: transparent;

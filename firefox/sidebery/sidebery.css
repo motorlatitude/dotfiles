@@ -1,0 +1,255 @@
+#root {
+    --tabs-font: 9pt Segoe UI;
+    --tabs-count-font: .625rem Segoe UI;
+    --bookmarks-bookmark-font: .875rem Segoe UI;
+    --bookmarks-folder-font: 9pt Segoe UI;
+    --nav-btn-width: 42px;
+    --nav-btn-height: 42px;
+    --bg: transparent;
+    background-color: transparent;
+}
+
+/* Adjust styles according to sidebar width */
+@media screen and (max-width: 47px) {
+    #root {
+        --tabs-indent: unset;
+    }
+  .Tab[data-audible]:not([data-muted]) svg.-loud, .Tab[data-muted] svg.-mute,
+  .PinnedTab[data-audible]:not([data-muted]) svg.-loud, .PinnedTab[data-muted] svg.-mute {
+        transform: translateY(4px) translateX(-13px);
+    }
+  .NavigationBar .panel-btn:not([data-active="true"]),
+  .Sidebar .settings-btn,
+  .Tab .close,
+  .Tab .title,
+  .PinnedTab .close,
+  .PinnedTab .title {
+        visibility: collapse;
+    }
+
+  .Tab .exp,
+  .PinnedTab .exp,
+  .Tab[data-parent][data-folded] .fav
+  .PinnedTab[data-parent][data-folded] .fav {
+        pointer-events: none;
+    }
+
+}
+
+/*
+ * Add margins and rounding around tabs
+ */
+
+#root {
+    --tabs-height: 42px;
+    --tabs-pinned-height: 42px;
+    background: transparent !important;
+}
+
+/* Background layer */
+.Tab .lvl-wrapper:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(100% - 10px);
+    height: calc(100% - 6px);
+    border-radius: 5px;
+    z-index: -1;
+}
+
+.PinnedTab {
+    content: '';
+    margin: 5px;
+    width: calc(100% - 10px);
+    height: 35px !important;
+    border-radius: 5px;
+    z-index: -1;
+}
+
+@media (prefers-color-scheme:light) {
+    #root {
+        --tabs-activated-bg: white !important;
+        --tabs-bg-active: var(--tabs-activated-bg) !important;
+        --tabs-selected-fg: var(--tabs-activated-fg) !important;
+        --tabs-selected-bg: var(--tabs-activated-bg) !important;
+        --bg: #f9f9fb !important;
+        --chrome-content-separator-color: rgb(204,204,204);
+    }
+
+  .Tab[data-selected] .lvl-wrapper:after,
+  .PinnedTab[data-selected] .lvl-wrapper:after,
+  .Tab[data-active] .lvl-wrapper:after,
+  .PinnedTab[data-active] .lvl-wrapper:after {
+        box-shadow: 0 0 1px rgba(128,128,142,0.9), 0 0 4px rgba(128,128,142,0.5);
+    }
+}
+
+@media (prefers-color-scheme:dark) {
+    #root {
+        --tabs-activated-bg: rgba(255,255,255,0.1) !important;
+        --tabs-bg-active: var(--tabs-activated-bg) !important;
+        --tabs-selected-fg: var(--tabs-activated-fg) !important;
+        --tabs-selected-bg: var(--tabs-activated-bg) !important;
+        --bg: #323639 !important;
+        --chrome-content-separator-color: #0c0c0d;
+        --tabs-bg-hover: rgba(200,200,200,0.1) !important;
+    }
+  .Tab[data-selected] .lvl-wrapper:after,
+  .PinnedTab[data-selected] .lvl-wrapper:after,
+  .Tab[data-active] .lvl-wrapper:after,
+  .PinnedTab[data-active] .lvl-wrapper:after {
+        box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    }
+  .Tab .placeholder > svg,
+  .PinnedTab .placeholder > svg {
+        fill: var(--nav-btn-fg);
+    }
+}
+
+/* Reset default styles */
+.Tab:hover,
+.Tab:active,
+.Tab[data-active],
+.Tab[data-active]:active,
+.Tab[data-selected],
+.Tab[data-selected]:hover,
+.Tab[data-selected]:active,
+.PinnedTab:hover,
+.PinnedTab:active,
+.PinnedTab[data-active],
+.PinnedTab[data-active]:active,
+.PinnedTab[data-selected],
+.PinnedTab[data-selected]:hover,
+.PinnedTab[data-selected]:active  {
+    background: transparent;
+}
+
+/* Reapply styles */
+
+.Tab:hover .lvl-wrapper:after,
+.PinnedTab:hover {
+    background-color: var(--tabs-bg-hover);
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+.NavigationBar .panel-btn[data-active="true"],
+.Tab:active .lvl-wrapper:after,
+.PinnedTab:active,
+.Tab[data-active]:active .lvl-wrapper:after,
+.PinnedTab[data-active]:active {
+    background-color: var(--tabs-bg-active);
+}
+
+.Tab[data-active] .lvl-wrapper:after,
+.PinnedTab[data-active] {
+    background-color: var(--tabs-activated-bg);
+}
+
+
+.Tab[data-selected] .lvl-wrapper:after,
+.PinnedTab[data-selected] {
+    background-color: var(--tabs-selected-bg);,
+}
+
+/* Resize and reposition favicons */
+.Tab .fav {
+    margin-left: 15px;
+}
+
+.PinnedTab .fav {
+    margin-left: 10px;
+}
+
+.Tab .fav,
+.Tab .placeholder,
+.Tab .t-box,
+.PinnedTab .fav,
+.PinnedTab .placeholder,
+.PinnedTab .t-box {
+    margin-bottom: -3px;
+}
+
+.TabsPanel .container {
+    box-shadow: none;
+}
+
+.Sidebar::before {
+    --border-margin: 16px;
+    content: '';
+    width: calc(100% - var(--border-margin));
+    margin: 0 calc(var(--border-margin) / 2);
+    border-top: 0px solid var(--chrome-content-separator-color);
+}
+
+
+.Tab .audio,
+.PinnedTab .audio {
+    z-index: 21 !important;
+    transform: translateX(5px);
+}
+.Tab .close,
+.PinnedTab .close {
+    margin: 0 5px;
+}
+.Tab .t-box,
+.PinnedTab .t-box {
+    width: calc(100% - 50px);
+}
+
+.NavigationBar .panels-box {
+    flex-wrap: nowrap;
+}
+
+#root[data-nav-layout="horizontal"] .NavigationBar, #root[data-nav-layout="hidden"] .NavigationBar {
+    box-shadow: none;
+}
+
+.NavigationBar .panel-btn {
+    top: 5px;
+    left: 6px;
+    width: calc(var(--nav-btn-width) - 6px);
+    height: calc(var(--nav-btn-height) - 8px);
+    border-radius: 4px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+.NavigationBar .panel-btn[data-active="true"] {
+    box-shadow: 0 0 1px rgba(128,128,142,0.9);
+}
+/*
+.Sidebar .panel::before{
+  --border-margin: 16px;
+  content: '';
+  width: calc(100% - var(--border-margin));
+  margin: 0 calc(var(--border-margin) / 2);
+  border-top: 1px solid var(--chrome-content-separator-color);
+}
+.NavigationBar .panels-box {
+  flex-wrap: nowrap;
+}
+*/
+
+.PinnedDock {
+    box-shadow: 0 0 0 transparent !important;
+    border-bottom: 1px solid rgba(200,2002,200,0.1);
+}
+
+.PinnedDock::after{
+    background-color: rgba(0,0,0,0);
+    box-shadow: 0 0 0 transparent !important;
+}
+
+.NavigationBar {
+    border-bottom: 1px solid rgba(200,2002,200,0.1);
+}
+
+.Tab .ctx {
+    top: 15px;
+    left: 4px;
+    width: 3px;
+    height: 15px;
+    border-radius: 3px;
+    box-shadow: 0 0 8px var(--container-fg);
+}
