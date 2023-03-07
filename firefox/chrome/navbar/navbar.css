@@ -1,0 +1,169 @@
+.titlebar-spacer {
+    display: none !important;
+}
+
+toolbox#navigator-toolbox {
+    border-bottom: solid var(--dividers) var(--sidebar-shadow-color) !important;
+}
+
+#nav-bar {
+    min-height: 36px !important;
+    box-shadow: none !important;
+    padding-inline: 5px 6px !important;
+    background-color: var(--toolbar-bgcolor) !important;
+    padding: 5px !important;
+    max-height: 43px !important;
+    width: calc(100% - 140px);
+}
+
+.private-browsing-indicator {
+    display: none !important;
+}
+
+#reload-button[disabled]:not(:-moz-window-inactive) > .toolbarbutton-icon {
+    opacity: 1 !important;
+}
+
+toolbar .toolbarbutton-1 {
+    margin-left: 3px !important;
+    margin-right: 3px !important;
+    margin-top: 3px !important;
+    width: 32px;
+    height: 32px;
+}
+
+#stop-reload-button[animate="true"] .toolbarbutton-animatable-box {
+    transform: translateX(2px) translateY(16px) !important;
+}
+
+.toolbarbutton-1[checked="true"] > .toolbarbutton-icon {
+    background: transparent !important;
+    fill: var(--lwt-toolbarbutton-icon-fill-attention);
+}
+
+toolbar .toolbarbutton-1 > .toolbarbutton-icon {
+    border-radius: 7px !important;
+    padding: 7px !important;
+}
+
+:root:not([customizing]) #back-button[disabled="true"] {
+    opacity: 0.5 !important;
+}
+
+#back-button > .toolbarbutton-icon {
+    padding: 4px !important;
+}
+#forward-button > .toolbarbutton-icon {
+    padding: 3px !important;
+}
+toolbar:not([customizing="true"])
+    .toolbarbutton-1:not(.titlebar-button):not(#back-button):not(#forward-button):not(#unified-extensions-button):not(#PanelUI-menu-button)
+    > .toolbarbutton-icon {
+    padding: 6px !important;
+}
+.toolbarbutton-1 .toolbarbutton-badge-stack #fxa-avatar-image {
+    padding: 1px !important;
+}
+
+.toolbarbutton-1 .toolbarbutton-badge-stack {
+    /*padding: 4px;*/
+    border-radius: var(--toolbarbutton-border-radius);
+}
+
+toolbar .toolbarbutton-1 > .toolbarbutton-icon,
+toolbar .toolbarbutton-1 > .toolbarbutton-text, toolbar .toolbarbutton-1 > .toolbarbutton-badge-stack {
+    padding: 4px !important;
+    border-radius: var(--toolbarbutton-border-radius);
+}
+
+.toolbarbutton-1 > .toolbarbutton-badge-stack > .toolbarbutton-icon {
+    width: 24px !important;
+}
+
+.webextension-browser-action > .toolbarbutton-badge-stack > .toolbarbutton-icon {
+    height: 24px !important;
+    width: 24px;
+}
+
+#unified-extensions-button  > .toolbarbutton-icon,
+#PanelUI-menu-button .toolbarbutton-badge-stack {
+    width: 32px !important;
+    padding: 8px !important;
+}
+
+#unified-extensions-button,
+#PanelUI-menu-button .toolbarbutton-badge-stack {
+    width: 32px;
+    height: 32px;
+}
+
+#PanelUI-menu-button .toolbarbutton-badge-stack {
+    padding: 0 !important;
+}
+
+#PanelUI-menu-button .toolbarbutton-badge-stack image {
+    width: 18px !important;
+    margin: 7px 6px !important;
+    height: 18px !important;
+}
+
+#tabbrowser-arrowscrollbox:not([scrolledtostart="true"])::part(scrollbutton-up):hover,
+#tabbrowser-arrowscrollbox:not([scrolledtoend="true"])::part(scrollbutton-down):hover,
+toolbar .toolbarbutton-1:not([disabled="true"], [checked], [open], :active, #PanelUI-menu-button):hover > .toolbarbutton-badge-stack {
+    background-color: transparent !important;
+    color: inherit;
+}
+
+
+
+/* Windows */
+#PanelUI-button {
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#PanelUI-menu-button[badge-status|="update"] .toolbarbutton-badge {
+    display: none !important;
+}
+
+:root[privatebrowsingmode] #fxa-toolbar-menu-button {
+    pointer-events: none !important;
+}
+
+/* show "Private" label for en languages only */
+:root[titlemodifier="(Private Browsing)"] #fxa-toolbar-menu-button::before {
+    content: "Private" !important;
+    display: -moz-box !important;
+    margin-inline-start: 12px !important;
+    margin-inline-end: 6px !important;
+}
+
+#nav-bar-customization-target {
+    overflow: visible !important;
+}
+
+.toolbarbutton-animatable-box {
+    transform: translateX(-80px) !important;
+    top: 1px !important;
+    z-index: 10 !important;
+}
+
+#PersonalToolbar {
+    margin-top: -40px !important;
+    opacity: 0;
+    transition: all var(--transition-time) var(--ease-out) !important;
+}
+
+toolbox[id="navigator-toolbox"]:hover #PersonalToolbar {
+    opacity: 1;
+    margin: 0 !important;
+}
+
+#PlacesToolbarItems {
+    margin: 7px 4px !important;
+}
+
+toolbarbutton[class="bookmark-item"]:not(:hover) {
+    opacity: 0.6 !important;
+}
