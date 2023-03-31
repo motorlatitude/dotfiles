@@ -26,6 +26,29 @@
     width: 18px !important;
 }
 
+#unified-extensions-panel .unified-extensions-item {
+    -moz-context-properties: fill;
+    fill: currentColor;
+    padding-block: 0 !important;
+}
+
+#unified-extensions-panel toolbaritem.unified-extensions-item {
+    max-width: max-content;
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+
+.webextension-browser-action > .toolbarbutton-badge-stack > .toolbarbutton-icon {
+    height: 24px !important;
+    width: 24px !important;
+}
+
+.webextension-browser-action > .toolbarbutton-badge-stack > .toolbarbutton-icon image {
+    height: 16px !important;
+    width: 16px !important;
+    padding: 3px;
+}
+
 .unified-extensions-item-icon, #unified-extensions-panel .unified-extensions-item .webextension-browser-action > .toolbarbutton-badge-stack {
     margin-inline-end: 0px !important;
 }
