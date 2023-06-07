@@ -180,7 +180,7 @@
 
 .Tab[data-selected="true"] .body:before,
 .PinnedTab[data-selected="true"] {
-    background-color: var(--tabs-selected-bg);,
+    background-color: var(--tabs-selected-bg);
 }
 
 
@@ -254,11 +254,11 @@
 
 .NavigationBar .nav-item {
   top: 5px;
-  left: 4px;
+  left: 0;
   width: calc(var(--nav-btn-width) - 6px);
   height: calc(var(--nav-btn-height) - 8px);
   border-radius: 4px;
-  margin-right: 5px;
+  margin-left: 6px;
   margin-bottom: 10px;
 }
 
@@ -305,5 +305,9 @@
 }
 
 .NavigationBar[data-layout="wrap"][data-overflowed="true"] .nav-item {
-    flex-grow: 0;
+  flex-grow: 0;
+}
+
+.NavigationBar .main-items {
+	grid-gap: 0px;
 }
