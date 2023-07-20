@@ -1,8 +1,8 @@
 #root {
-  --tabs-font: 9pt Segoe UI;
-  --tabs-count-font: .625rem Segoe UI;
-  --bookmarks-bookmark-font: .875rem Segoe UI;
-  --bookmarks-folder-font: 9pt Segoe UI;
+  --tabs-font: 9pt Segoe UI, Arial, sans-serif;
+  --tabs-count-font: .625rem Segoe UI, Arial, sans-serif;
+  --bookmarks-bookmark-font: .875rem Segoe UI, Arial, sans-serif;
+  --bookmarks-folder-font: 9pt Segoe UI, Arial, sans-serif;
   --tabs-progress-bg: #0080ffff;
   --nav-btn-width: 42px;
   --nav-btn-height: 42px;
