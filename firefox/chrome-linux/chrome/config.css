@@ -1,0 +1,295 @@
+/* order of these files is important and should not be changed */
+
+/*@import 'icons/extension-icons.css';*/
+@import 'window-controls/wc-without-tabline.css';
+@import 'window-controls/wc-wt-windowspatch.css';
+@import 'hide-tabline.css';
+@import "userChrome-hover.css";
+@import "cleaner-extensions.css";
+
+:root {
+  --dark-0: #2D3134;
+  --dark-base: #323639;
+  --dark-1: #40454A;
+  --dark-2: #4A5055;
+  --dark-3: #5C646A;
+  --dark-4: #666F75;
+  --light-0: #D7DFEA;
+  --light-base: #afc0d5;
+  --light-1: #A1B5CE;
+  --light-2: #94ABC7;
+  --light-3: #87A0C0;
+  --light-4: #7996B9;
+  --accent: #63cdcf;
+  --yellow: #C9B336;
+  --green: #36C987;
+  --red: #C9365D;
+  --extension-icon-mask: grayscale(85%) invert(40%) sepia(10%) saturate(329%) hue-rotate(163deg) brightness(94%) contrast(97%);
+
+  /* expanded width of the sidebar.
+    used for userChrome-static, and hover */
+  /*--sidebar-width: 250px;*/
+  /* initial width of the sidebar.
+    advised not to change since tst css relies on this value*/
+  /*--sidebar-collapsed-width: 60px;*/
+
+  --dividers: 0px;
+
+  --tl-animation-duration: 150ms;
+  /*--tl-tab-background-gradient: */
+  /* uncomment and add gradient value for selected tab gradient*/
+
+  /******WINDOW CONTROL PLACEMENT VARS******/
+  /* larger value moves window controls down,*/
+  /* can be negative(moves controls up) */
+  /* 55px if tabline visible, -25px if tabline hidden */
+  --wc-vertical-shift: 15px;
+  --wc-left-space: 10px; /* add space to the left of window controls*/
+  --wc-right-space: 15px; /* add space to the right of window controls*/
+  /* left-space shifts window-controls */
+  /* if you want to shift them to the left: positive value */
+  /* and if you want to shift them to the right: smaller or negative value */
+  /* right-space shifts rest of the navbar (forward,backward,urlbar,etc.) to the right */
+  /* if you want to increase/decrease space between window-controls and navbars: */
+  /* set positive/negative value for right-space*/
+
+
+  --toolbarbutton-inner-padding: 4px;
+  --in-content-page-background: #2D3134 !important;
+  background-color: #2D3134 !important;
+}
+
+:root[privatebrowsingmode="temporary"]{
+  --dark-0: #2D3134;
+  --dark-base: #323639;
+  --dark-1: #40454A;
+  --dark-2: #4A5055;
+  --dark-3: #5C646A;
+  --dark-4: #666F75;
+  --light-0: #EEF1FB;
+  --light-base: #BBC7F0;
+  --light-1: #9FB4F9;
+  --light-2: #88A3FB;
+  --light-3: #7092FF;
+  --light-4: #577F04;
+  --accent: #63cdcf;
+  --yellow: #C9B336;
+  --green: #36C987;
+  --red: #C9365D;
+  --extension-icon-mask: grayscale(85%) invert(40%) sepia(10%) saturate(329%) hue-rotate(163deg) brightness(94%) contrast(97%);
+}
+
+/** USER FIXES **/
+
+:root:not([inFullscreen]) toolbar#nav-bar {
+    margin-left: 0 !important;
+}
+
+#nav-bar {
+    padding: 5px !important;
+    max-height: 43px !important;
+}
+
+#urlbar, #searchbar {
+    --toolbar-field-background-color: var(--dark-1);
+    --lwt-toolbarbutton-icon-fill: var(--light-base);
+    --toolbar-bgcolor: var(--dark-base);
+    background-color: var(--toolbar-field-background-color) !important;
+}
+
+.urlbar-page-action, #urlbar-go-button, .search-go-button {
+    padding: 0 4px !important;
+    margin-left: 4px !important;
+}
+
+.urlbar-icon:hover:not([disabled]), #page-action-buttons > toolbarbutton:hover:not([disabled]), .searchbar-search-button:hover, #identity-box:hover:not(.no-hover), #tracking-protection-icon-container:hover #tracking-protection-icon-box {
+    background-color: transparent !important;
+}
+
+.urlbar-icon:hover:active:not([disabled]), .urlbar-icon[open], #page-action-buttons > toolbarbutton:hover:active:not([disabled]), .searchbar-search-button:hover:active, #identity-box:hover:active:not(.no-hover), #identity-box[open]:not(.no-hover), #tracking-protection-icon-container[open] #tracking-protection-icon-box {
+    background-color: transparent !important;
+    transition-duration: 0 !important;
+}
+
+#TabsToolbar.browser-toolbar {
+    display: inline-block !important;
+    position: absolute;
+    top: var(--wc-vertical-shift) !important;
+    left: auto !important;
+    right: var(--wc-left-space) !important;
+    z-index: 9999999;
+}
+
+#tracking-protection-icon {
+    margin-inline-start: 0;
+    margin-top: 3px !important;
+}
+
+#navigator-toolbox-background, #navigator-toolbox{
+    background: var(--dark-base) !important;
+}
+
+.bookmark-item > .toolbarbutton-text {
+    display: -moz-box !important;
+    margin: 1px 4px 1px 0 !important;
+}
+
+toolbarbutton.bookmark-item:not(.subviewbutton) {
+    border-radius: 4px !important;
+}
+
+.bookmark-item > .toolbarbutton-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 4px !important;
+}
+
+toolbarbutton menupopup[placespopup] > :is(menu, menuitem), .subview-subheader, panelview .toolbarbutton-1, .subviewbutton, .widget-overflow-list .toolbarbutton-1 {
+    margin: 0 !important;
+    border-radius: 0 !important;
+}
+
+* {
+    --lwt-tab-line-color: transparent;
+    --panel-border-color: #55545E;
+    --chrome-content-separator-color: #3C3B44;
+    --toolbarbutton-border-radius: 5px;
+    --toolbar-start-end-padding: 5px;
+    --lwt-accent-color: var(--toolbar-bgcolor);
+    --lwt-accent-color-inactive: var(--toolbar-bgcolor);
+    --arrowpanel-border-color: transparent;
+    --panel-border-color: transparent;
+}
+
+  /* Sidebery */
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] #sidebar-header {
+    visibility: collapse;
+}
+
+#main-window[titlepreface*="🦊"] #tabbrowser-arrowscrollbox-periphery,
+#main-window[titlepreface*="🦊"] #alltabs-button{
+    display: none;
+}
+
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/autohide_sidebar.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
+/* Show sidebar only when the cursor is over it  */
+/* The border controlling sidebar width will be removed so you'll need to modify these values to change width */
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] {
+    --uc-sidebar-width: 47px;
+    --uc-sidebar-hover-width: 252px;
+    --uc-autohide-sidebar-delay: 100ms; /* Wait 0.6s before hiding sidebar */
+    position: relative;
+    min-width: var(--uc-sidebar-width) !important;
+    width: var(--uc-sidebar-width) !important;
+    max-width: var(--uc-sidebar-width) !important;
+    z-index:1;
+    margin-top: 0px;
+}
+/** Add Curve To Sidebar **/
+#sidebar-box::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    height: 10px;
+    width: 10px;
+    border-top-left-radius: 50%;
+    left: var(--uc-sidebar-width);
+    box-shadow: -5px -5px 0 0 var(--sidebar-background-color);
+}
+
+.ScrollBox > .scroll-container > .scrollable {
+    background-color: var(--sidebar-background-color) !important;
+}
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"][positionend] {
+    direction: rtl;
+}
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"][positionend] > *{
+    direction: ltr;
+}
+
+  #sidebar-box[positionend]:-moz-locale-dir(rtl){
+    direction: ltr;
+}
+  #sidebar-box[positionend]:-moz-locale-dir(rtl) > *{
+    direction: rtl;
+}
+
+  #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] > #sidebar {
+    transition: min-width 115ms linear !important;
+    min-width: var(--uc-sidebar-width) !important;
+    will-change: min-width;
+}
+
+  #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]::before {
+    transition: left 115ms linear !important;
+    left: var(--uc-sidebar-width) !important;
+    will-change: left;
+}
+
+  #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover > #sidebar {
+    min-width: var(--uc-sidebar-hover-width) !important;
+    transition: min-width 100ms linear var(--uc-autohide-sidebar-delay), box-shadow 500ms linear !important;
+    /*box-shadow: 0 0 4px rgba(10,10,10, .5);*/
+    box-shadow: 0 0 0 transparent;
+    clip-path: inset(0px -15px 0px -15px);
+}
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover::before {
+    left: var(--uc-sidebar-hover-width) !important;
+    transition: left 100ms linear var(--uc-autohide-sidebar-delay), box-shadow 500ms linear !important;
+}
+
+  /* Add sidebar divider and give it background */
+
+  #sidebar,
+  #sidebar-header {
+      background-color: var(--toolbar-bgcolor) !important;
+      border-inline: 1px solid var(--chrome-content-separator-color);
+      border-inline-width: 0px 1px;
+  }
+
+  #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([positionend]) > :-moz-locale-dir(rtl),
+  #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"][positionend] > * {
+      border-inline-width: 0px 1px;
+  }
+
+  /* Move statuspanel to the other side when sidebar is hovered so it doesn't get covered by sidebar */
+
+  #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([positionend]):hover ~ #appcontent #statuspanel {
+      inset-inline: auto 0px !important;
+  }
+  #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:not([positionend]):hover ~ #appcontent #statuspanel-label {
+      margin-inline: 0px !important;
+      border-left-style: solid !important;
+  }
+
+  /* Uncomment to enable compatibility for multi-row_bookmarks.css */
+  /* This would break buttons placed in the toolbar but that is likely not happening if you are using multi-row setup  */
+  /*
+  #PersonalToolbar:not([customizing]){
+    position: fixed;
+    display: block;
+    margin-bottom: 0px !important;
+  }
+  */
+
+.sidebar::before[style] {
+    content: '';
+    width: 0 !important;
+    border-top: 0 solid transparent !important;
+}
+
+#sidebar,
+#sidebar-header {
+    border-inline: 0 solid var(--chrome-content-separator-color);
+}
+
+toolbarbutton:not([id="PanelUI-menu-button"]) > .toolbarbutton-badge-stack > .toolbarbutton-icon[label]:not([label=""]) {
+    margin-inline-end: 0;
+    padding: 5px;
+}
