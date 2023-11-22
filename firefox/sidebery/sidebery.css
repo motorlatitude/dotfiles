@@ -15,7 +15,7 @@
   #root {
     --tabs-indent: unset;
   }
-  
+
   .NavigationBar .nav-item:not([data-active="true"]),
   .Sidebar .settings-btn,
   .Tab .close,
@@ -38,29 +38,29 @@
 .Tab[data-muted] .audio,
 .PinnedTab[data-audible="true"]:not([data-muted]) .audio,
 .PinnedTab[data-muted] .audio {
-    transform: translateY(3px) translateX(-20px) scale(0.8);
-    background: #323639;
-    border-radius: 50%;
-    height: 24px;
-    width: 24px;
-		padding: 11px;
+  transform: translateY(3px) translateX(-20px) scale(0.8);
+  background: #323639;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  padding: 11px;
 }
 
 .NavigationBar .nav-item .audio {
-    transform: translateY(-13px) translateX(-13px) scale(0.8);
-    background: #323639;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
-		padding: 3px;
-    box-shadow: 0 0 0 transparent;
-    border: 0 solid transparent;
+  transform: translateY(-13px) translateX(-13px) scale(0.8);
+  background: #323639;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  padding: 3px;
+  box-shadow: 0 0 0 transparent;
+  border: 0 solid transparent;
 }
 
 
 .NavigationBar .nav-item[data-active="true"] .audio,
 .NavigationBar .nav-item:hover .audio {
-	background: #44474A;
+  background: #44474A;
 }
 
 .Tab[data-active="true"] .audio {
@@ -130,7 +130,7 @@
 }
 
 .main-box{
-	background: var(--frame-bg);
+  background: var(--frame-bg);
 }
 
 
@@ -161,26 +161,26 @@
 
 .Tab:hover .body:before,
 .PinnedTab:hover {
-    background-color: var(--tabs-bg-hover) !important;
-    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  background-color: var(--tabs-bg-hover) !important;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
 }
 
 .Tab:active .body:before,
 .PinnedTab:active,
 .Tab[data-active="true"]:active .body:before,
 .PinnedTab[data-active="true"]:active {
-    background-color: var(--tabs-bg-active);
+  background-color: var(--tabs-bg-active);
 }
 
 .Tab[data-active="true"] .body:before,
 .PinnedTab[data-active="true"] {
-    background-color: var(--tabs-activated-bg);
+  background-color: var(--tabs-activated-bg);
 }
 
 
 .Tab[data-selected="true"] .body:before,
 .PinnedTab[data-selected="true"] {
-    background-color: var(--tabs-selected-bg);
+  background-color: var(--tabs-selected-bg);
 }
 
 
@@ -227,7 +227,7 @@
 .Tab .close,
 .PinnedTab .close {
   margin: 8px;
-	width: 26px;
+  width: 26px;
   height: 26px;
   border-radius: 5px;
 }
@@ -253,10 +253,10 @@
 }
 
 .NavigationBar .nav-item {
-  top: 5px;
+  top: 0;
   left: 0;
-  width: calc(var(--nav-btn-width) - 6px);
-  height: calc(var(--nav-btn-height) - 8px);
+  width: calc(var(--nav-btn-width) - 5px);
+  height: calc(var(--nav-btn-height) - 6px);
   border-radius: 4px;
   margin-left: 6px;
   margin-bottom: 10px;
@@ -301,7 +301,7 @@
 
 .NavigationBar {
   border-bottom: 1px solid rgba(200,200,200,0.1);
-  height: 46px;
+  height: 44px;
 }
 
 .NavigationBar[data-layout="wrap"][data-overflowed="true"] .nav-item {
@@ -309,5 +309,6 @@
 }
 
 .NavigationBar .main-items {
-	grid-gap: 0px;
+  grid-gap: 0px;
+  margin-left: -3px;
 }
