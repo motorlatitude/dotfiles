@@ -1,0 +1,347 @@
+#root {
+  --tabs-font: 9pt Roboto, sans-serif;
+  --tabs-count-font: .625rem Roboto, sans-serif;
+  --bookmarks-bookmark-font: .875rem Roboto, sans-serif;
+  --bookmarks-folder-font: 9pt Roboto, sans-serif;
+  --tabs-progress-bg: #0080ffff;
+  --nav-btn-width: 42px;
+  --nav-btn-height: 42px;
+  --bg: transparent;
+  --tabs-activated-bg: #ffffff33;
+  --tabs-bg-active: #ffffff33;
+  --tabs-selected-bg: #ffffff33;
+  background-color: transparent;
+  --tabs-height: 30px;
+}
+
+/* Adjust styles according to sidebar width */
+@media screen and (max-width: 47px) {
+  #root {
+    --tabs-indent: unset;
+  }
+  
+  .NavigationBar .nav-item:not([data-active="true"]),
+  .Sidebar .settings-btn,
+  .Tab .close,
+  .Tab .title,
+  .PinnedTab .close,
+  .PinnedTab .title {
+    visibility: collapse;
+  }
+
+  .Tab .exp,
+  .PinnedTab .exp,
+  .Tab[data-parent][data-folded] .fav 
+  .PinnedTab[data-parent][data-folded] .fav {
+    pointer-events: none;
+  }
+
+}
+
+.Tab[data-audible="true"]:not([data-muted]) .audio,
+.Tab[data-muted] .audio,
+.PinnedTab[data-audible="true"]:not([data-muted]) .audio,
+.PinnedTab[data-muted] .audio {
+    transform: translateY(3px) translateX(-20px) scale(0.8);
+    background: #323639;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+		padding: 11px;
+}
+
+.NavigationBar .nav-item .audio {
+    transform: translateY(-13px) translateX(-13px) scale(0.8);
+    background: #323639;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+		padding: 3px;
+    box-shadow: 0 0 0 transparent;
+    border: 0 solid transparent;
+}
+
+
+.NavigationBar .nav-item[data-active="true"] .audio,
+.NavigationBar .nav-item:hover .audio {
+	background: #44474A;
+}
+
+.NavigationBar {
+    height: 42px;
+}
+
+.Tab[data-active="true"] .audio {
+  background: #474A4D;
+}
+
+.Tab:hover .audio {
+  background: #585C61;
+}
+
+.Tab[data-audible="true"] .t-box, .Tab[data-muted="true"] .t-box, .Tab[data-paused="true"] .t-box {
+  transform: translateX(0);
+  mask: linear-gradient(-90deg,#000, #000 var(--audio-btn-offset),#000 calc(var(--audio-btn-offset) + 12px),#000);
+}
+
+/*
+ * Add margins and rounding around tabs
+ */ 
+
+#root {
+  --tabs-height: 38px;
+  --tabs-pinned-height: 38px;
+  background: transparent !important;
+}
+/* Background layer */
+.Tab .body:before{
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 3px;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.PinnedTab {
+  content: '';
+  margin: 5px;
+  width: calc(100% - 10px);
+  height: 35px !important;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+@media (prefers-color-scheme:dark) {
+  #root {
+    --tabs-activated-bg: rgba(255,255,255,0.1) !important;
+    --tabs-bg-active: var(--tabs-activated-bg) !important;
+    --tabs-selected-fg: var(--tabs-activated-fg) !important;
+    --tabs-selected-bg: var(--tabs-activated-bg) !important;
+    --bg: #323639 !important;
+    --frame-bg: #323639 !important;
+    --chrome-content-separator-color: #0c0c0d;
+    --tabs-bg-hover: rgba(240,245,255,0.2) !important;
+  }
+  .Tab[data-selected="true"] .body:before,
+  .PinnedTab[data-selected="true"] .body:before,
+  .Tab[data-active="true"] .body:before,
+  .PinnedTab[data-active="true"] .body:before {
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  }
+  .Tab .placeholder > svg,
+  .PinnedTab .placeholder > svg {
+    fill: var(--nav-btn-fg);
+  }
+}
+
+.main-box{
+	background: var(--frame-bg);
+}
+
+
+/* Reset default styles */
+.Tab:hover,
+.Tab:active,
+.Tab .body,
+.Tab[data-active="true"] .body,
+.Tab[data-active="true"],
+.Tab[data-active="true"]:active,
+.Tab[data-selected="true"],
+.Tab[data-selected="true"]:hover,
+.Tab[data-selected="true"]:active,
+.PinnedTab:hover,
+.PinnedTab:active,
+.PinnedTab[data-active="true"],
+.PinnedTab[data-active="true"]:active,
+.PinnedTab[data-selected="true"],
+.PinnedTab[data-selected="true"]:hover,
+.PinnedTab[data-selected="true"]:active  {
+  background: transparent;
+  background-color: transparent;
+  box-shadow: 0 0 0 transparent;
+  border: 0 solid transparent;
+}
+
+/* Reapply styles */
+
+.Tab:hover .body:before,
+.PinnedTab:hover {
+    background-color: var(--tabs-bg-hover) !important;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+.Tab:active .body:before,
+.PinnedTab:active,
+.Tab[data-active="true"]:active .body:before,
+.PinnedTab[data-active="true"]:active {
+    background-color: var(--tabs-bg-active);
+}
+
+.Tab[data-active="true"] .body:before,
+.PinnedTab[data-active="true"] {
+    background-color: var(--tabs-activated-bg);
+}
+
+.Tab[data-selected="true"] .body:before,
+.PinnedTab[data-selected="true"] {
+    background-color: var(--tabs-selected-bg);
+}
+
+.Tab {
+  border-radius: 5px;
+  margin: 4px;
+  width: calc(100% - 8px);
+  padding: 0;
+}
+
+.Tab:hover {
+  background-color: var(--tabs-bg-active);
+}
+
+.Tab[data-active="true"] {
+  background-color: var(--tabs-bg-active);
+  border-radius: 5px;
+  margin: 4px;
+  width: calc(100% - 8px);
+  padding: 0;
+}
+
+/* Resize and reposition favicons */
+
+.Tab .fav {
+  margin-left: 13px !important;
+  margin-top: 3px !important;
+}
+
+.Tab .fav,
+.Tab .placeholder,
+.Tab .t-box,
+.PinnedTab .fav,
+.PinnedTab .placeholder,
+.PinnedTab .t-box {
+  margin-bottom: -3px;
+}
+
+.Tab .fav {
+  margin-left: 10px !important;
+  margin-top: -1px !important;
+}
+
+.Tab .t-box,
+.PinnedTab .t-box {
+  margin-left: 3px;
+}
+
+.TabsPanel .container {
+  box-shadow: none;
+}
+
+.Sidebar::before {
+  --border-margin: 16px;
+  content: '';
+  width: calc(100% - var(--border-margin));
+  margin: 0 calc(var(--border-margin) / 2);
+  border-top: 0px solid var(--chrome-content-separator-color);
+}
+
+
+.Tab .audio,
+.PinnedTab .audio {
+  z-index: 21 !important;
+  transform: translateX(5px);
+}
+
+.Tab .close,
+.PinnedTab .close {
+  margin: 8px;
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+}
+
+.Tab .t-box,
+.PinnedTab .t-box {
+  width: calc(100% - 50px);
+}
+
+.Tab .ctx {
+  top: 15px !important;
+  left: 6px !important;
+  right: auto !important;
+  width: 3px !important;
+  height: 15px !important;
+  border-radius: 3px !important;
+  box-shadow: 0 0 8px var(--container-fg);
+}
+
+
+#root[data-nav-layout="horizontal"] .NavigationBar, #root[data-nav-layout="hidden"] .NavigationBar {
+  box-shadow: none;
+}
+
+.NavigationBar .nav-item {
+  top: 5px;
+  left: 0;
+  width: calc(var(--nav-btn-width) - 6px);
+  height: calc(var(--nav-btn-height) - 8px);
+  border-radius: 4px;
+  margin-left: 6px;
+  margin-bottom: 10px;
+}
+
+.NavigationBar .nav-item[data-active="true"] {
+  box-shadow: 0 0 1px rgba(128,128,142,0.9);
+}
+
+.top-horizontal-box {
+  margin-bottom: 0;
+}
+
+.bottom-bar {
+  display: none !important;
+}
+
+/*
+.Sidebar .panel::before{
+  --border-margin: 16px;
+  content: '';
+  width: calc(100% - var(--border-margin));
+  margin: 0 calc(var(--border-margin) / 2);
+  border-top: 1px solid var(--chrome-content-separator-color);
+}
+.NavigationBar .panels-box {
+  flex-wrap: nowrap;
+}
+
+
+*/
+
+.PinnedDock {
+  box-shadow: 0 0 0 transparent !important;
+  border-bottom: 1px solid rgba(200,2002,200,0.1);
+}
+
+.scrollable {
+  margin-top: -4px;
+}
+
+.PinnedDock::after{
+  background-color: rgba(0,0,0,0);
+  box-shadow: 0 0 0 transparent !important;
+}
+
+.NavigationBar {
+  border-bottom: 1px solid rgba(200,200,200,0.1);
+  height: 46px;
+}
+
+.NavigationBar[data-layout="wrap"][data-overflowed="true"] .nav-item {
+  flex-grow: 0;
+}
+
+.NavigationBar .main-items {
+  grid-gap: 0px;
+}
