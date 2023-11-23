@@ -150,7 +150,7 @@
     background-color: var(--toolbar-field-background-color) !important;
     border: 0 !important;
     box-shadow: none !important;
-    padding: 3px !important;
+    padding: 3px 4px 3px 3px !important;
     background-clip: padding-box !important;
     text-align: center;
     transition: background-color 0.1s var(--ease-basic);
@@ -265,6 +265,12 @@
 #urlbar[open] .urlbarView {
     display: block !important;
     width: 100% !important;
+}
+
+.urlbar-page-action, #urlbar-go-button, .search-go-button {
+    width: 30px !important;
+    height: 24px !important;
+    border-radius: 5px !important;
 }
 
 #urlbar-results {
@@ -409,6 +415,11 @@
     background-color: transparent !important;
 }
 
+#star-button-box .urlbar-icon {
+    height: 23px !important;
+    margin: 0 2px 0 3px !important;
+}
+
 #tracking-protection-icon-container {
     background: 0 !important;
     border: 0 !important;
@@ -468,9 +479,12 @@
 .urlbar-icon:hover:not([disabled]),
 #page-action-buttons > toolbarbutton:hover:not([disabled]),
 .searchbar-search-button:hover,
-#identity-box:hover:not(.no-hover),
-#tracking-protection-icon-container:hover #tracking-protection-icon-box {
+#identity-box:hover:not(.no-hover) {
     background-color: transparent !important;
+}
+
+#tracking-protection-icon-container:hover #tracking-protection-icon-box {
+    background-color: var(--urlbar-box-hover-bgcolor) !important;
 }
 
 .urlbar-icon:hover:active:not([disabled]),
@@ -653,7 +667,7 @@
 }
 
 #tracking-protection-icon {
-    fill: var(--lwt-toolbarbutton-icon-fill) !important;
+    fill: #987CFF !important;
 }
 
 #identity-icon {

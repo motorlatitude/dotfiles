@@ -97,6 +97,12 @@
     background-color: var(--toolbar-field-background-color) !important;
 }
 
+.urlbar-icon, #page-action-buttons > toolbarbutton, .searchbar-search-button, #identity-box, #tracking-protection-icon-box {
+    border-radius: 0 !important;
+    margin: 0 !important;
+    height: 30px !important;
+}
+
 .urlbar-page-action, #urlbar-go-button, .search-go-button {
     padding: 0 4px !important;
     margin-left: 4px !important;
@@ -121,8 +127,7 @@
 }
 
 #tracking-protection-icon {
-    margin-inline-start: 0;
-    margin-top: 3px !important;
+    margin-top: 4px !important;
 }
 
 #navigator-toolbox-background, #navigator-toolbox{
@@ -292,4 +297,60 @@ See the above repository for updates as well as full license text. */
 toolbarbutton:not([id="PanelUI-menu-button"]) > .toolbarbutton-badge-stack > .toolbarbutton-icon[label]:not([label=""]) {
     margin-inline-end: 0;
     padding: 5px;
+}
+
+panel toolbarseparator {
+    margin: 8px 0 !important;
+    border-top: 1px solid #3D4144 !important;
+}
+
+.identity-popup-warning-box,
+.identity-popup-warning-gray {
+    color: #FFC700DD;
+}
+
+#identity-permission-box {
+    margin-left: 3px;
+}
+
+.subviewbutton-iconic > .toolbarbutton-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.toolbar-menupopup :is(menu, menuitem), .subview-subheader, panelview .toolbarbutton-1, .subviewbutton, .widget-overflow-list .toolbarbutton-1 {
+    padding: 0 !important;
+}
+
+.subviewbutton-iconic > .toolbarbutton-icon {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+#identity-popup-security-description > description {
+    margin-top: 0 !important;
+}
+
+panelview .toolbarbutton-1, .subviewbutton, .widget-overflow-list .toolbarbutton-1, .panel-banner-item {
+    min-height: 28px !important;
+}
+
+.identity-popup-section {
+    padding: 8px 4px !important;
+}
+
+#identity-popup-mainView-panel-header {
+    padding: 16px 16px 8px 16px !important;
+}
+
+#identity-popup-more-info-footer {
+    padding: 0 0 6px 0;
+}
+
+.panel-header {
+    padding: 8px 8px 0px 8px !important;
+}
+
+.subviewbutton-back {
+    border-radius: 5px !important;
 }

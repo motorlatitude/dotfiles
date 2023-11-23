@@ -44,10 +44,14 @@
     list-style-image: url(reader-mode.svg) !important;
 }
 
-#star-button[starred],
-#tracking-protection-icon-box[active] {
+#star-button[starred] {
     list-style-image: url(star-filled.svg) !important;
     fill: var(--lwt-toolbarbutton-icon-fill-attention) !important;
+}
+
+#tracking-protection-icon-box[active] {
+    list-style-image: url(tracking-protection.svg) !important;
+    fill: #8463FF !important;
 }
 
 #star-button[starred],

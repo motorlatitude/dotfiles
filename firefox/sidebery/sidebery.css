@@ -7,6 +7,7 @@
   --nav-btn-width: 42px;
   --nav-btn-height: 42px;
   --bg: transparent;
+  --status-notice: #ff0000;
   background-color: transparent;
 }
 
@@ -70,7 +71,7 @@
 .NavigationBar .nav-item[data-active="true"] {
 	background: radial-gradient(transparent 0%, var(--color) 300%);
   border: 1px solid trasparent;
-  box-shadow: 0 0 0 transparent, 0 0 15px rgba(0,0,0,0.2) !important;
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.1) !important;
 }
 
 .NavigationBar .nav-item[data-active="true"] .icon {
@@ -79,11 +80,11 @@
 }
 
 .Tab[data-active="true"] .audio {
-  background: var(--color);
+  background: #474A4D;
 }
 
 .Tab:hover .audio {
-  background: var(--color);
+  background: #585C61;
 }
 
 .Tab[data-audible="true"] .t-box, .Tab[data-muted="true"] .t-box, .Tab[data-paused="true"] .t-box {
@@ -254,7 +255,7 @@
 
 .Tab .ctx {
   top: 15px !important;
-  left: 6px !important;
+  left: 4px !important;
   right: auto !important;
   width: 3px !important;
   height: 15px !important;
@@ -326,4 +327,22 @@
 .NavigationBar .main-items {
 	grid-gap: 0px;
   margin-left: -3px;
+}
+
+.Tab .badge {
+  --status-notice: #ff0000;
+  bottom: auto;
+  top: -4px;
+  right: -8px;
+  height: 8px;
+  width: 8px;
+  border: 2px solid #323639;
+}
+
+.Tab:hover .badge {
+  border: 2px solid #585C61;
+}
+
+.Tab[data-updated="true"] .fav-icon, .Tab[data-pending="true"] .fav-icon, .Tab[data-loading="ok"] .fav-icon, .Tab[data-loading="err"] .fav-icon {
+  mask: none;
 }

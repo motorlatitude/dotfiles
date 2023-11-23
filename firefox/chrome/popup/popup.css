@@ -311,7 +311,7 @@ panelview .toolbarbutton-1,
 .subviewbutton,
 .widget-overflow-list .toolbarbutton-1,
 .panel-banner-item {
-    min-height: 32px !important;
+    min-height: 28px !important;
 }
 
 .subviewbutton .toolbarbutton-icon,
@@ -324,7 +324,7 @@ panelview .toolbarbutton-1,
 
 .subviewbutton label,
 .panel-banner-item label {
-    padding-inline-start: 0 !important;
+    padding-inline-start: 8px !important;
 }
 
 #appMenu-zoom-controls > .subviewbutton,
@@ -396,7 +396,11 @@ panelmultiview .toolbaritem-combined-buttons > spacer.after-label {
 
 .subviewbutton-back {
     padding: 4px !important;
-    border-radius: 16px !important;
+    border-radius: 5px !important;
+}
+
+.subviewbutton > .toolbarbutton-icon {
+    margin: 0 0 0 8px !important;
 }
 
 .subviewbutton-back .toolbarbutton-icon {
@@ -446,7 +450,7 @@ panelmultiview .toolbaritem-combined-buttons > spacer.after-label {
 }
 
 .identity-popup-section {
-    padding: 16px !important;
+    padding: 8px 4px !important;
     display: flex !important;
 }
 
@@ -493,7 +497,7 @@ panelmultiview .toolbaritem-combined-buttons > spacer.after-label {
 
 #identity-popup-mainView-panel-header {
     -moz-box-align: start !important;
-    padding: 16px !important;
+    padding: 8px 8px 0px 8px !important;
 }
 
 #identity-popup-securityView-body {
@@ -928,4 +932,13 @@ richlistitem:-moz-any([originaltype="generatedPassword"], [originaltype="loginWi
     .identity-popup-content-blocking-category::after {
         content: url(menu-right-2x.svg) !important;
     }
+}
+
+.PanelUI-subView .subviewbutton-nav::after {
+    width: 30px !important;
+    height: 20px !important;
+}
+
+.subviewbutton[shortcut]::after {
+    margin-right: 10px !important;
 }
