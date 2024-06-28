@@ -8,6 +8,7 @@
   --nav-btn-height: 42px;
   --bg: transparent;
   --status-notice: #ff0000;
+  --audio-btn-offset: 0px;
   background-color: transparent;
 }
 
@@ -21,6 +22,7 @@
   .Sidebar .settings-btn,
   .Tab .close,
   .Tab .title,
+	.BottomBar,
   .PinnedTab .close,
   .PinnedTab .title {
     visibility: collapse;
@@ -69,14 +71,22 @@
 }
 
 .NavigationBar .nav-item[data-active="true"] {
-	background: radial-gradient(transparent 0%, var(--color) 300%);
-  border: 1px solid trasparent;
+	background: var(--color);
+  border: 1px solid #000;
   box-shadow: 0 0 15px rgba(10, 10, 10, 0.1) !important;
+	border-radius: 6px;
+}
+
+.NavigationBar .nav-item[data-active="true"]:hover {
+	background: var(--color);
+  border: 1px solid #000;
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.1) !important;
+	border-radius: 6px;
 }
 
 .NavigationBar .nav-item[data-active="true"] .icon {
-	color: var(--color);
-  fill: var(--color) !important;
+	color: black;
+  fill: black !important;
 }
 
 .Tab[data-active="true"] .audio {
@@ -99,6 +109,7 @@
 #root {
   --tabs-height: 42px;
   --tabs-pinned-height: 42px;
+  --audio-btn-offset: 0px;
   background: transparent !important;
 }
 /* Background layer */
@@ -307,7 +318,7 @@
 
 .PinnedDock {
   box-shadow: 0 0 0 transparent !important;
-  border-bottom: 1px solid rgba(200,2002,200,0.1);
+  border-bottom: 1px solid rgba(200,2002,200,0);
 }
 
 .PinnedDock::after{
@@ -316,8 +327,9 @@
 }
 
 .NavigationBar {
-  border-bottom: 1px solid rgba(200,200,200,0.1);
+  border-bottom: 1px solid rgba(200,200,200,0);
   height: 44px;
+	background: #323639 !important;
 }
 
 .NavigationBar[data-layout="wrap"][data-overflowed="true"] .nav-item {
@@ -334,8 +346,8 @@
   bottom: auto;
   top: -4px;
   right: -8px;
-  height: 8px;
-  width: 8px;
+  height: 10px;
+  width: 10px;
   border: 2px solid #323639;
 }
 
@@ -345,4 +357,8 @@
 
 .Tab[data-updated="true"] .fav-icon, .Tab[data-pending="true"] .fav-icon, .Tab[data-loading="ok"] .fav-icon, .Tab[data-loading="err"] .fav-icon {
   mask: none;
+}
+
+.Tab[data-audible="true"] .t-box .title, .Tab[data-muted="true"] .t-box .title, .Tab[data-paused="true"] .t-box .title {
+	transform: translateX(0);
 }

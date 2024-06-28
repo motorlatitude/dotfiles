@@ -184,7 +184,7 @@ See the above repository for updates as well as full license text. */
 
 #sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] {
     --uc-sidebar-width: 47px;
-    --uc-sidebar-hover-width: 252px;
+    --uc-sidebar-hover-width: 262px;
     --uc-autohide-sidebar-delay: 100ms; /* Wait 0.6s before hiding sidebar */
     position: relative;
     min-width: var(--uc-sidebar-width) !important;
